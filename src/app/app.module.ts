@@ -9,6 +9,8 @@ import { ProfilePage } from './pages/profile/profile.page';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import{  HttpClientModule } from "@angular/common/http";
 import { FormsModule } from '@angular/forms';
+import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
+import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon-list-item.component';
 
 // Decorator
 @NgModule({ // components
@@ -17,7 +19,9 @@ import { FormsModule } from '@angular/forms';
     LoginPage,
     PokemonCatalogPage,
     ProfilePage,
-    LoginFormComponent
+    LoginFormComponent,
+    PokemonListComponent,
+    PokemonListItemComponent
   ],
   imports: [ // modules
     BrowserModule,
