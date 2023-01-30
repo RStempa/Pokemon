@@ -32,6 +32,7 @@ export class PokemonCatalogServiceService {
     for(let pokemon of this._pokemon){
       let urlArray = pokemon.url.split("/");
       pokemon.avatar = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + urlArray[urlArray.length - 2] + ".png";
+      pokemon.id = urlArray[urlArray.length - 2];
     }
   }
 }

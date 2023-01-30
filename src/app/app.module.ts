@@ -11,6 +11,7 @@ import{  HttpClientModule } from "@angular/common/http";
 import { FormsModule } from '@angular/forms';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon-list-item.component';
+import { CatchPokemonButtonComponent } from './components/catch-pokemon-button/catch-pokemon-button.component';
 
 // Decorator
 @NgModule({ // components
@@ -21,7 +22,8 @@ import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon
     ProfilePage,
     LoginFormComponent,
     PokemonListComponent,
-    PokemonListItemComponent
+    PokemonListItemComponent,
+    CatchPokemonButtonComponent
   ],
   imports: [ // modules
     BrowserModule,
