@@ -1,7 +1,13 @@
-<li *ngIf="pokemon" class="shadow">
-    <section>
-        <img class="block" [src]="pokemon.avatar" [alt]="pokemon.name"/>
-    </section>
-    <span>{{pokemon.name}}</span>
-    <button type="submit" class="bg-blue-500 p-2 rounded">Catch</button>
-</li>
+
+<div *ngIf="pokemon" class="rounded overflow-hidden shadow-lg">
+    <img class="w-full" [src]="pokemon.avatar" [alt]="pokemon.name">
+    <div class="px-6 py-4">
+      <div class="font-bold text-xl mb-2">{{pokemon.name}}</div>
+      <p class="text-gray-700 text-base">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+      </p>
+    </div>
+    <div class="px-6 pt-4 pb-2">
+      <button class="inline-block bg-blue-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Catch</button>
+    </div>
+  </div>
