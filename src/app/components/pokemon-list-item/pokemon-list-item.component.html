@@ -1,6 +1,7 @@
-<li *ngIf="pokemon">
+<li *ngIf="pokemon" class="shadow">
     <section>
-        <img [src]="pokemon.avatar" [alt]="pokemon.name"/>
+        <img class="block" [src]="pokemon.avatar" [alt]="pokemon.name"/>
     </section>
     <span>{{pokemon.name}}</span>
+    <button type="submit" class="bg-blue-500 p-2 rounded">Catch</button>
 </li>
