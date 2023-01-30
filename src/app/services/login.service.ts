@@ -24,10 +24,8 @@ return this.checkUsername(username)
       return this.createUser(username);
     }
     return of(user);
-  }),
-  tap((user: User) => { // tap get response without causing side effetcts
-    StorageUtil.storageSave<User>(StorageKeys.User, user)
   })
+
   )
 
 }
