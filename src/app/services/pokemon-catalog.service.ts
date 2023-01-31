@@ -5,7 +5,7 @@ import { Pokemon } from '../models/pokemon.model';
 @Injectable({
   providedIn: 'root'
 })
-export class PokemonCatalogServiceService {
+export class PokemonCatalogService {
 
   private _pokemon: Pokemon[] = [];
 

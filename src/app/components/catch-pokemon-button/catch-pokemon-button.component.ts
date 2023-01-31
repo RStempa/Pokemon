@@ -7,9 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class CatchPokemonButtonComponent {
 
-  @Input() pokemonId: string = "";
+  @Input() pokemonName: string = "";
 
   onCatchClick(): void{
-    console.log(this.pokemonId);
+    console.log(this.pokemonName);
   }
 }

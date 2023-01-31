@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PokemonCatalogServiceService } from 'src/app/services/pokemon-catalog-service.service';
+import { PokemonCatalogService } from 'src/app/services/pokemon-catalog.service';
 import {Pokemon} from "../../models/pokemon.model"
 
 @Component({
@@ -13,7 +13,7 @@ export class PokemonCatalogPage implements OnInit {
     return this.pokemonCatalogService.pokemon;
   }
 
-  constructor(private readonly pokemonCatalogService: PokemonCatalogServiceService){}
+  constructor(private readonly pokemonCatalogService: PokemonCatalogService){}
   
   ngOnInit(): void {
       this.pokemonCatalogService.findAllPokemon();
