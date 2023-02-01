@@ -12,9 +12,9 @@ export class NavbarComponent {
     return this.userService.user;
   }
 
+  /**
+   * Constructor takes an injected userservice.
+   * @param userService
+   */
   constructor(private readonly userService: UserService) {}
-
-  /*  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  } */
 }

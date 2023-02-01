@@ -1,62 +1,64 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, of, switchMap, tap } from 'rxjs';
+import { map, Observable, of, switchMap } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { StorageKeys } from '../enums/storage-keys.enum';
 import { User } from '../models/user.model';
-import { StorageUtil } from '../utils/storage.util';
 
 const { apiUsers, ApiKey } = environment; // destructuring syntax
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
+  constructor(private readonly http: HttpClient) {}
 
-constructor(private readonly http: HttpClient) { }
+  /**
+   * The login function. Creates a new user if undefined.
+   * @param username
+   * @returns A user.
+   */
+  public login(username: string): Observable<User> {
+    return this.checkUsername(username).pipe(
+      switchMap((user: User | undefined) => {
+        if (user === undefined) {
+          return this.createUser(username);
+        }
+        return of(user);
+      })
+    );
+  }
+  /**
+   * Check if user exists on the backend.
+   * @param username
+   * @returns The user if it exists or undefined.
+   */
+  private checkUsername(username: string): Observable<User | undefined> {
+    return this.http.get<User[]>(`${apiUsers}?username=${username}`).pipe(
+      //rxjs operators
+      map((response: User[]) => response.pop())
+    );
+  }
 
-  // login
-public login(username: string): Observable<User> {
-return this.checkUsername(username)
-.pipe(
-  switchMap((user: User | undefined) => {
-    if (user === undefined) {
-      return this.createUser(username);
-    }
-    return of(user);
-  })
-
-  )
-
-}
-  // check if user exists
-private checkUsername(username: string): Observable<User | undefined> {
-  
-  return this.http.get<User[]>(`${apiUsers}?username=${username}`)
-  .pipe(
-    //rxjs operators
-    map((response: User[]) => response.pop())
-  )
-}
-
-
-  // if !user - create user
+  /**
+   * If there is no such user they are created and
+   * stored on the backend.
+   * @param username
+   * @returns the created user.
+   */
   private createUser(username: string): Observable<User> {
     // user
     const user = {
       username,
-      pokemon: []
+      pokemon: [],
     };
     //headers
     const headers = new HttpHeaders({
-      "Content-type": "application/json",
-      "x-api-key": ApiKey
+      'Content-type': 'application/json',
+      'x-api-key': ApiKey,
     });
     // post
     return this.http.post<User>(apiUsers, user, {
-      headers
-    })
+      headers,
+    });
   }
-
-  // if user || created user store user
-} // class loginservice
+}
