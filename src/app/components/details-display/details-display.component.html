@@ -15,20 +15,26 @@
         </button>
       </div>
       <!--body-->
+      <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 ">
+
       <img class="w-full" [src]="pokemon.avatar" [alt]="pokemon.name">
 
-      <div class="relative pl-6 flex-auto">
+      <div class="relative p-6 flex-auto">
+        <h1 class="text-3xl">Stats</h1>
         <div *ngFor="let stat of pokemonDetails.stats">
             <span>{{stat.name}}: {{stat.base_stat}}</span>
         </div>
       </div>
 
       <div class="relative p-6 flex-auto">
+        <h1 class="text-3xl">Abilities</h1>
+
         <div *ngFor="let ability of pokemonDetails.abilities" class="my-4 text-slate-500 text-lg leading-relaxed">
             <h1 class="text-xl">{{ability.name}}</h1>
             <p>{{ability.short_effect}}</p>
         </div>
 
+      </div>
       </div>
       <!--footer-->
       <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
