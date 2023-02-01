@@ -4,10 +4,12 @@
     <input type="text" 
     ngModel
     #username="ngModel" 
-    name="username" id="username" 
+    name="username" 
+    required
+    id="username" 
     class="border border-slate-300 p-2 rounded w-full" 
-    placeholder="johndoe">
+    placeholder="A name must be entered">
 </fieldset>
 
-<button type="submit" class="bg-yellow-500 p-2 rounded">Login</button>
+<button type="submit" [disabled]="loginForm.form.invalid" class="bg-yellow-500 p-2 rounded">Login</button>
 </form>
