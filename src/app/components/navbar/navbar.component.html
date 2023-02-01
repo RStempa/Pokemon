@@ -1,1 +1,14 @@
-<p>navbar works!</p>
+<nav class="bg-yellow-500 flex justify-between items-center p-4 sticky top-0 w-full">
+
+    <span class="font-bold">Ng Pokemon</span>
+    <ng-container *ngIf="user !== undefined">
+        <ul class="flex">
+            <li class="px-4">
+                <a routerLink="/pokemon">Pokemon</a>
+            </li>
+            <li class="px-4">
+                <a routerLink="/profile">Profile</a>
+            </li>
+        </ul>
+    </ng-container>
+</nav>
