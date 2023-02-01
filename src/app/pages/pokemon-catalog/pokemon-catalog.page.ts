@@ -9,6 +9,7 @@ import {Pokemon} from "../../models/pokemon.model"
 })
 export class PokemonCatalogPage implements OnInit {
   
+
   get pokemon(): Pokemon[]{
     if(!this.pokemonCatalogService.pokemon)
       throw new Error("Pokemon undefined");

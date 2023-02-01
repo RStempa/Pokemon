@@ -7,4 +7,5 @@ import { Pokemon } from 'src/app/models/pokemon.model';
 })
 export class PokemonListComponent {
   @Input() pokemon: Pokemon[] = [];
+  @Input() isCatalog: boolean = false;
 }

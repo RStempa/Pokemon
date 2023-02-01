@@ -19,9 +19,37 @@ export class PokemonService {
      private readonly userService: UserService) { }
 
 
+
+    public removeFromCollection(pokemonName: string): Observable<User>
+    {
+      if(!this.userService.user)
+        throw new Error("");
+      const user: User = this.userService.user;
+      const headers = new HttpHeaders({
+        'content-type': 'application/json',
+        'x-api-key': ApiKey
+      })
+
+      const pokemonToRemove = user.pokemon.find((value) => value.name === pokemonName)
+      if(!pokemonToRemove)
+        throw new Error("");
+      let newPokemon = [...user.pokemon];
+      newPokemon.splice(user.pokemon.indexOf(pokemonToRemove) ,1);
+      return this.http.patch<User>(`${apiUsers}/${user.id}`, {
+        pokemon: newPokemon
+      },
+      {
+        headers
+      })
+      .pipe(
+        tap((updatedUser: User) => {
+          this.userService.user = updatedUser;
+        })
+      );
+    }
+
   public addToCollection(pokemonName: string): Observable<User> 
   {
-    const userId: number = 6;
     if(!this.userService.user)
       throw new Error("");
     const user: User = this.userService.user;
@@ -29,13 +57,12 @@ export class PokemonService {
     
     if(!pokemon)
       throw new Error("");
-    console.log("test");
     const headers = new HttpHeaders({
       'content-type': 'application/json',
       'x-api-key': ApiKey
     })
-    return this.http.patch<User>(`${apiUsers}/${userId}`, {
-      pokemon: [...user.pokemon, pokemon.name]
+    return this.http.patch<User>(`${apiUsers}/${user.id}`, {
+      pokemon: [...user.pokemon, pokemon]
     },
     {
       headers

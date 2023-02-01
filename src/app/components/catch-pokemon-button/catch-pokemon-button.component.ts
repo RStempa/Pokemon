@@ -15,7 +15,6 @@ export class CatchPokemonButtonComponent {
     console.log(this.pokemonName);
     this.pokemonService.addToCollection(this.pokemonName).subscribe({
       next: (response: User) => {
-        console.log("NEXT", response);
       },
       error: (error: HttpErrorResponse) => 
       {

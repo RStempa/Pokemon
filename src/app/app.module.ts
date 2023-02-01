@@ -13,6 +13,7 @@ import { PokemonListComponent } from './components/pokemon-list/pokemon-list.com
 import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon-list-item.component';
 import { CatchPokemonButtonComponent } from './components/catch-pokemon-button/catch-pokemon-button.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ReleasePokemonButtonComponent } from './components/release-pokemon-button/release-pokemon-button.component';
 
 // Decorator
 @NgModule({ // components
@@ -25,7 +26,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     PokemonListComponent,
     PokemonListItemComponent,
     CatchPokemonButtonComponent,
-    NavbarComponent
+    NavbarComponent,
+    ReleasePokemonButtonComponent
   ],
   imports: [ // modules
     BrowserModule,

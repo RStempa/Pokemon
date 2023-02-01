@@ -18,6 +18,10 @@ export class PokemonCatalogService {
 
   public findAllPokemon(): void {
     this._pokemon = StorageUtil.storageRead<Pokemon[]>("pokemon");
+    for(let i: number = 0; i < 20; ++i)
+    {
+
+    }
     if(!this._pokemon)
       this.http.get<Pokemon[]>("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0")
       .subscribe({
