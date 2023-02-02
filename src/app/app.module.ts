@@ -7,7 +7,7 @@ import { LoginPage } from './pages/login/login.page';
 import { PokemonCatalogPage } from './pages/pokemon-catalog/pokemon-catalog.page';
 import { ProfilePage } from './pages/profile/profile.page';
 import { LoginFormComponent } from './components/login-form/login-form.component';
-import{  HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon-list-item.component';
@@ -18,7 +18,8 @@ import { ShowMoreButtonComponent } from './components/show-more-button/show-more
 import { DetailsDisplayComponent } from './components/details-display/details-display.component';
 
 // Decorator
-@NgModule({ // components
+@NgModule({
+  // components
   declarations: [
     AppComponent,
     LoginPage,
@@ -33,14 +34,14 @@ import { DetailsDisplayComponent } from './components/details-display/details-di
     ShowMoreButtonComponent,
     DetailsDisplayComponent
   ],
-  imports: [ // modules
+  imports: [
+    // modules
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
-
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

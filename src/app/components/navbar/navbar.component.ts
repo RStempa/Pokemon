@@ -7,14 +7,14 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   get user(): User | undefined {
     return this.userService.user;
   }
 
+  /**
+   * Constructor takes an injected userservice.
+   * @param userService
+   */
   constructor(private readonly userService: UserService) {}
-
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
 }
