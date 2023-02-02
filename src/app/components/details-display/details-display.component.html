@@ -1,0 +1,49 @@
+<div *ngIf="showDetails && pokemon" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+    
+  <div class="relative w-auto my-6 mx-auto max-w-6xl">
+    <!--content-->
+    <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+      <!--header-->
+      <div class="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+        <h3 class="text-3xl font-semibold">
+          {{pokemon.name}}
+        </h3>
+        <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" (click)="toggleModal()">
+          <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+            ×
+          </span>
+        </button>
+      </div>
+      <!--body-->
+      <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 ">
+
+      <img class="w-full" [src]="pokemon.avatar" [alt]="pokemon.name">
+
+      <div class="relative p-6 flex-auto">
+        <h1 class="text-3xl">Stats</h1>
+        <div *ngFor="let stat of pokemonDetails.stats">
+            <span>{{stat.name}}: {{stat.base_stat}}</span>
+        </div>
+      </div>
+
+      <div class="relative p-6 flex-auto">
+        <h1 class="text-3xl">Abilities</h1>
+
+        <div *ngFor="let ability of pokemonDetails.abilities" class="my-4 text-slate-500 text-lg leading-relaxed">
+            <h1 class="text-xl">{{ability.name}}</h1>
+            <p>{{ability.short_effect}}</p>
+        </div>
+
+      </div>
+      </div>
+      <!--footer-->
+      <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+        <span *ngFor="let type of pokemonDetails.types" class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{type}}</span>
+
+        <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="toggleModal()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

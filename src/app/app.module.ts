@@ -14,6 +14,8 @@ import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon
 import { CatchPokemonButtonComponent } from './components/catch-pokemon-button/catch-pokemon-button.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ReleasePokemonButtonComponent } from './components/release-pokemon-button/release-pokemon-button.component';
+import { ShowMoreButtonComponent } from './components/show-more-button/show-more-button.component';
+import { DetailsDisplayComponent } from './components/details-display/details-display.component';
 
 // Decorator
 @NgModule({
@@ -29,6 +31,8 @@ import { ReleasePokemonButtonComponent } from './components/release-pokemon-butt
     CatchPokemonButtonComponent,
     NavbarComponent,
     ReleasePokemonButtonComponent,
+    ShowMoreButtonComponent,
+    DetailsDisplayComponent
   ],
   imports: [
     // modules

@@ -1,0 +1,4 @@
+<div class="px-6 pt-4 pb-2">
+    <button (click)="onShowMoreClick()" class="inline-block bg-blue-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Details</button>
+    <app-details-display [showDetails]="showDetails" [pokemon]="pokemon" (getShowDetailsUpdate)="toggle($event)" [pokemonDetails]="pokemonDetails"></app-details-display>
+  </div>
