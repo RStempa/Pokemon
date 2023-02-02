@@ -5,9 +5,7 @@ import { PokemonDetails } from '../models/pokemon-details.model';
 import { Pokemon } from '../models/pokemon.model';
 import { StorageUtil } from '../utils/storage.util';
 
-//const { apiPokemon } = environment;
-
-const apiPokemon = process.env['apiPokemon'];
+const { apiPokemon } = environment;
 
 @Injectable({
   providedIn: 'root',

@@ -7,9 +7,7 @@ import { User } from '../models/user.model';
 import { environment } from 'src/environments/environment';
 import { Observable, tap } from 'rxjs';
 
-//const {ApiKey, apiUsers} = environment;
-const apiUsers = process.env['apiUsers'];
-const ApiKey = process.env['ApiKey'];
+const { ApiKey, apiUsers } = environment;
 
 @Injectable({
   providedIn: 'root',
@@ -26,7 +24,7 @@ export class PokemonService {
     const user: User = this.userService.user;
     const headers = new HttpHeaders({
       'content-type': 'application/json',
-      'x-api-key': ApiKey as string,
+      'x-api-key': ApiKey,
     });
 
     const pokemonToRemove = user.pokemon.find(
@@ -61,7 +59,7 @@ export class PokemonService {
     if (!pokemon) throw new Error('');
     const headers = new HttpHeaders({
       'content-type': 'application/json',
-      'x-api-key': ApiKey as string,
+      'x-api-key': ApiKey,
     });
     return this.http
       .patch<User>(

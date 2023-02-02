@@ -4,10 +4,7 @@ import { map, Observable, of, switchMap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user.model';
 
-//const { apiUsers, ApiKey } = environment; // destructuring syntax
-
-const apiUsers = process.env['apiUsers'];
-const ApiKey = process.env['ApiKey'];
+const { apiUsers, ApiKey } = environment; // destructuring syntax
 
 @Injectable({
   providedIn: 'root',
@@ -57,10 +54,10 @@ export class LoginService {
     //headers
     const headers = new HttpHeaders({
       'Content-type': 'application/json',
-      'x-api-key': ApiKey as string,
+      'x-api-key': ApiKey,
     });
     // post
-    return this.http.post<User>(apiUsers as string, user, {
+    return this.http.post<User>(apiUsers, user, {
       headers,
     });
   }
