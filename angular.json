@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-guitars": {
+    "ng-pokemon": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:class": {
@@ -38,7 +38,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ng-guitars",
+            "outputPath": "dist/ng-pokemon",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -85,10 +85,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ng-guitars:build:production"
+              "browserTarget": "ng-pokemon:build:production"
             },
             "development": {
-              "browserTarget": "ng-guitars:build:development"
+              "browserTarget": "ng-pokemon:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -96,7 +96,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-guitars:build"
+            "browserTarget": "ng-pokemon:build"
           }
         },
         "test": {
