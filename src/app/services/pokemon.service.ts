@@ -56,7 +56,8 @@ export class PokemonService {
     const pokemon: Pokemon | undefined =
       this.pokemonService.pokemonByName(pokemonName);
 
-    if (!pokemon) throw new Error('');
+    if (!pokemon) 
+      throw new Error('');
     const headers = new HttpHeaders({
       'content-type': 'application/json',
       'x-api-key': ApiKey,
