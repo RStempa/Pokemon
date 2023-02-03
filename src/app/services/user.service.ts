@@ -25,6 +25,11 @@ export class UserService {
     this._user = user;
   }
 
+  /**
+   * Checks if a pokemon is already in the user's collection
+   * @param pokemonName Pokemon to search for
+   * @returns True if pokemon is in collection
+   */
   public inCollection(pokemonName: string): boolean {
     if(this._user)
     {

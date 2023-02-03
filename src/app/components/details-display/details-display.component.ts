@@ -13,6 +13,9 @@ export class DetailsDisplayComponent {
   @Input() showDetails!: boolean;
   @Output() getShowDetailsUpdate = new EventEmitter<boolean>();
 
+  /**
+   * Toggles if modal should be displayed
+   */
   toggleModal() {
     this.showDetails = !this.showDetails;
     this.getShowDetailsUpdate.emit(this.showDetails);

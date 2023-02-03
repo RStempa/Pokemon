@@ -19,6 +19,11 @@ export class PokemonService {
     private readonly userService: UserService
   ) {}
 
+  /**
+   * Removes the pokemon from the user's collection
+   * @param pokemonName Pokemon to remove
+   * @returns Observable user
+   */
   public removeFromCollection(pokemonName: string): Observable<User> {
     if (!this.userService.user) throw new Error('');
     const user: User = this.userService.user;
@@ -50,6 +55,11 @@ export class PokemonService {
       );
   }
 
+  /**
+   * Adds a pokemon to the trainer's collection.
+   * @param pokemonName Pokemon to add 
+   * @returns Observable user
+   */
   public addToCollection(pokemonName: string): Observable<User> {
     if (!this.userService.user) throw new Error('');
     const user: User = this.userService.user;

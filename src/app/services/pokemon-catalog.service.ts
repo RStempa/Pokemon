@@ -19,16 +19,27 @@ export class PokemonCatalogService {
     abilities: [],
     types: [],
   };
+
+  /**
+   * @returns Full pokemon list.
+   */
   get pokemon(): Pokemon[] | undefined {
     return this._pokemon;
   }
 
+  /**
+   * @returns Details on a pokemon
+   */
   get pokemonDetails(): PokemonDetails {
     return this._pokemonDetails;
   }
 
   constructor(private readonly http: HttpClient) {}
 
+  /**
+   * Finds all pokemon in the api
+   * @returns 
+   */
   public findAllPokemon(): void {
 
     if(this._pokemon)
@@ -62,6 +73,10 @@ export class PokemonCatalogService {
     else this.formatUrlStrings();
   }
 
+  /**
+   * Finds details on one pokemon
+   * @param pokemonName Pokemon to find details for
+   */
   public findPokemonDetails(pokemonName: string): void {
     this.http.get<PokemonDetails>(`${apiPokemon}/${pokemonName}`).subscribe({
       next: (pokemon: any) => {
@@ -89,6 +104,10 @@ export class PokemonCatalogService {
     });
   }
 
+  /**
+   * Finds ability details
+   * @param url Ability url
+   */
   public findPokemonAbility(url: string): void {
     this.http.get<any>(`${url}`).subscribe({
       next: (ability: any) => {
@@ -107,6 +126,9 @@ export class PokemonCatalogService {
     });
   }
 
+  /**
+   * Formats the pokemon object for local objects
+   */
   public formatUrlStrings(): void {
     if (!this._pokemon) throw new Error('Pokemon undefined');
     for (let pokemon of this._pokemon) {
@@ -119,6 +141,11 @@ export class PokemonCatalogService {
     }
   }
 
+  /**
+   * Finds a locally saved pokemon by it's name.
+   * @param name Pokemon to find 
+   * @returns Found pokemon
+   */
   public pokemonByName(name: string): Pokemon | undefined {
     if (!this._pokemon) return undefined;
 
