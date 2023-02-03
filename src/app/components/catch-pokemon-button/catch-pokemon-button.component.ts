@@ -17,12 +17,16 @@ export class CatchPokemonButtonComponent implements OnInit {
   constructor(private readonly pokemonService: PokemonService,
     private readonly userService: UserService) {}
 
+    /**
+     * Checks if the pokemon is caught
+     */
   ngOnInit (): void {
     this.isCaught = this.userService.inCollection(this.pokemonName);
-    if(this.pokemonName === "bulbasaur")
-    console.log(this.isCaught, this.pokemonName)
   }
 
+  /**
+   * Handles when the user attempts to catch a pokemon
+   */
   onCatchClick(): void{
     this.pokemonService.addToCollection(this.pokemonName).subscribe({
       next: (response: User) => {

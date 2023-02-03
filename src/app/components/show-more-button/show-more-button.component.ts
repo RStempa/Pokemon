@@ -25,16 +25,21 @@ export class ShowMoreButtonComponent {
   };
   constructor(private readonly pokemonCatalogService: PokemonCatalogService) {}
 
+  /**
+   * Handles when the user tries to view details on the pokemon
+   */
   onShowMoreClick(): void 
   {
     this.pokemonCatalogService.findPokemonDetails(this.pokemonName);
     this.pokemon = this.pokemonCatalogService.pokemonByName(this.pokemonName);
     this.pokemonDetails = this.pokemonCatalogService.pokemonDetails;
-    console.log(this.showDetails);
     this.showDetails = true;
-    console.log(this.pokemonDetails.abilities);
   }
 
+  /**
+   * Toggles the modal display.
+   * @param event 
+   */
   toggle(event: boolean) {
     this.showDetails = event;
   }

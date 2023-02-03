@@ -13,6 +13,9 @@ export class ReleasePokemonButtonComponent {
   @Input() pokemonName: string = "";
 
   constructor(private readonly pokemonService: PokemonService,){}
+  /**
+   * Handles when the user attempts to release a pokemon
+   */
   onReleaseClick(): void{
     this.pokemonService.removeFromCollection(this.pokemonName).subscribe({
       next: (response: User) => {
