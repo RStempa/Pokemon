@@ -1,3 +1,7 @@
+Ng-Pokemon
+
+The application allows a user to catch Pokémon received from the PokeAPI. Users must enter a username before being able to catch any Pokémon. Users are also able to view the Pokémon that have been catched, see more details about them and release them.
+
 # NgPokemon
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.
