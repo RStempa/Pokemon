@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { finalize } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { PokemonDetails } from '../models/pokemon-details.model';
 import { Pokemon } from '../models/pokemon.model';
@@ -11,6 +12,7 @@ const { apiPokemon } = environment;
   providedIn: 'root',
 })
 export class PokemonCatalogService {
+  private _loading = false;
   private _pokemon: Pokemon[] | undefined = [];
   private _pokemonDetails: PokemonDetails = {
     stats: [],
@@ -28,20 +30,35 @@ export class PokemonCatalogService {
   constructor(private readonly http: HttpClient) {}
 
   public findAllPokemon(): void {
+
+    if(this._pokemon)
+      if(this._pokemon?.length > 0 || this._loading)
+        return;
+
     this._pokemon = StorageUtil.storageRead<Pokemon[]>('pokemon');
+
     if (!this._pokemon)
+    {
+      this._loading = true;
       this.http
-        .get<Pokemon[]>(`${apiPokemon}?limit=100000&offset=0`)
-        .subscribe({
-          next: (pokemon: any) => {
-            this._pokemon = pokemon.results;
-            StorageUtil.storageSave('pokemon', this._pokemon);
-            this.formatUrlStrings();
-          },
-          error: (error: HttpErrorResponse) => {
-            console.log(error.message);
-          },
-        });
+      .get<Pokemon[]>(`${apiPokemon}?limit=100000&offset=0`)
+      .pipe(
+        finalize(() => {
+          this._loading = false;
+        })
+      )
+      .subscribe({
+        next: (pokemon: any) => {
+          this._pokemon = pokemon.results;
+          StorageUtil.storageSave('pokemon', this._pokemon);
+          this.formatUrlStrings();
+        },
+        error: (error: HttpErrorResponse) => {
+          console.log(error.message);
+        },
+    });
+    }
+      
     else this.formatUrlStrings();
   }
 
