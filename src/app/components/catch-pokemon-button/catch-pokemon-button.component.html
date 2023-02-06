@@ -1,3 +1,12 @@
 <div class="px-6 pt-4 pb-2">
-    <button (click)="onCatchClick()" class="inline-block bg-blue-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Catch</button>
-  </div>
+    <button (click)="onCatchClick()">
+      <ng-container *ngIf="isCaught; then caught else notCaught"></ng-container>
+      <ng-template #caught>
+        <span class="material-icons  red-color">catching_pokemon</span>
+      </ng-template>
+
+      <ng-template #notCaught>
+        <span class="material-icons">catching_pokemon</span>
+      </ng-template>
+    </button>
+  </div> 
