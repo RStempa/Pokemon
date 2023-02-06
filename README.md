@@ -24,6 +24,8 @@ A deployed version of the website can be found [Here](https://pokemon-rstempa.ve
 <br>
 <br>
 <br>
+<br>
+<br>
 
 
 ## Profile Page
