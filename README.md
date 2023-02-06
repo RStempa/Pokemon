@@ -35,6 +35,8 @@ A deployed version of the website can be found [Here](https://pokemon-rstempa.ve
 <br>
 <br>
 <br>
+<br>
+<br>
 
 ## Component Tree
 Component Tree can be found [here](https://www.figma.com/file/IgDg8AbYYrketbu6QLL7rf/Pokemon-Component-Tree?node-id=0%3A1&t=pVoYyt8DD8L45tMa-0)
