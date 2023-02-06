@@ -21,6 +21,10 @@ A deployed version of the website can be found [Here](https://pokemon-rstempa.ve
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+
 
 ## Profile Page
 <img align="left" width=450 src="https://i.imgur.com/6weNm9v.png"> On the profile page, the user can see all the pokemon they've caught. They can also release them to remove them from their collection.
